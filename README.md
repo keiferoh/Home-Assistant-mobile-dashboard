@@ -16,6 +16,9 @@
  Home Card
  https://community.home-assistant.io/t/lovelace-home-card/103260
 #
+ Optionally you will need to install and configure Mail & Packages from HACS
+ https://github.com/moralmunky/Home-Assistant-Mail-And-Packages-Custom-Card
+#
  I haven't cleaned up all of the YAML code yet, so there may be some
  duplication of formatting between the cards and the templates.
 #
@@ -51,6 +54,24 @@
     select all and copy to your computer's clipboard
 15. Paste the yaml code copied from step 14 into the Lovelace dashboard you
     opened in step 12 and save.
+#
+You will need to create several "Helpers" for the swipe menus.
+#
+1. Click "Configuration" from the sidebar
+2. Click Helpers from the "Configure Home Assistant Page"
+3. Click "+ Add Helper" from the lower right corner
+4. Create two (2) Dropdown helpers: "Menu Select" and "Submenu Select"
+   Menu Select - The main menu
+   For my example you will need to add "Lights", "Weather" and "Doors"
+   Submenu Select - the separate menus for Lights and Doors
+   For my example you will need to add "Outside", "Office", "Living Room",
+   "Front Door", "Garage Door" and "Back Door"
+5. If you also installed and configured Mail & Packages you will need to
+   create 5 Toggle helpers, "Amazon Delivering", "Amazon Delivered", 
+   "FedEx Delivering", "FedEx Delivered", "UPS Delivering", "UPS Delivered",
+   and "Mail"
+   (Mail is part of the US Postal Service Informed Delivery. If you do not
+     use their service, or are outside the US this option will not be necessary)
 #
 At this point you will need to edit the individual cards or the raw yaml
 in order to replace my entities with yours.
