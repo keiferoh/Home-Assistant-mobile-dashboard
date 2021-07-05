@@ -13,7 +13,7 @@
  State Switch:
  https://github.com/thomasloven/lovelace-state-switch
 #
- Custom Home Card
+ Home Card
  https://community.home-assistant.io/t/lovelace-home-card/103260
 #
  I haven't cleaned up all of the YAML code yet, so there may be some
@@ -47,9 +47,9 @@
     the 3 dots in the upper right
     corner again and select "Raw configuration editor"
 13. Delete the default entries. You will replace them with the code in step 14.
-13. Open the file "My Mobile Dashboard with Templates.yaml" from my repository,
+14. Open the file "My Mobile Dashboard with Templates.yaml" from my repository,
     select all and copy to your computer's clipboard
-14. Paste the yaml code copied from step 13 into the Lovelace dashboard you
+15. Paste the yaml code copied from step 14 into the Lovelace dashboard you
     opened in step 12 and save.
 #
 At this point you will need to edit the individual cards or the raw yaml
