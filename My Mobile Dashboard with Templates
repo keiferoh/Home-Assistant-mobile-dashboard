@@ -1,0 +1,1668 @@
+button_card_templates:
+  menu_select:
+    show_state: false
+    show_icon: true
+    styles:
+      card:
+        - height: 75px
+        - padding: 3%
+        - width: 150px
+        - background-color: black
+        - border-radius: 25px
+        - border-style: outset
+        - border-width: 3px
+    double_tap_action:
+      action: call-service
+      service: input_select.select_option
+      service_data:
+        entity_id: input_select.menu_select
+        option: Weather
+  swipe_locks:
+    tap_action: none
+    state:
+      - value: unavailable
+        color: rgb(128, 128, 128)
+      - value: unknown
+        color: rgb(128, 128, 128)
+      - value: locked
+        color: rgb(0, 175, 0)
+      - value: unlocked
+        color: rgb(255, 0, 0)
+        styles:
+          icon:
+            - animation: blink 2s infinite
+    color_type: icon
+    size: 30%
+    hold_action: none
+    double_tap_action: none
+  locks:
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    show_name: true
+    state:
+      - value: unavailable
+        color: rgb(128, 128, 128)
+      - value: unknown
+        color: rgb(128, 128, 128)
+      - value: locked
+        color: rgb(0, 175, 0)
+      - value: unlocked
+        color: rgb(255, 0, 0)
+        styles:
+          icon:
+            - animation: blink 2s infinite
+    color_type: icon
+    size: 30%
+    confirmation:
+      text: '[[[ return ` ${entity.attributes.friendly_name}! Are you sure?` ]]]'
+    lock:
+      enabled: true
+      unlock: tap
+      duration: 5
+    styles:
+      card:
+        - font-size: 12px
+        - '--mdc-ripple-color': gainsboro
+        - '--mdc-ripple-press-opacity': 0.5
+  doors:
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    show_name: true
+    state:
+      - value: unavailable
+        color: rgb(128, 128, 128)
+      - value: unknown
+        color: rgb(128, 128, 128)
+      - value: 'off'
+        color: rgb(0, 175, 0)
+      - value: 'on'
+        color: rgb(255, 0, 0)
+        styles:
+          icon:
+            - animation: blink 2s infinite
+    color_type: icon
+    size: 30%
+    styles:
+      card:
+        - font-size: 12px
+  lights:
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    show_state: false
+    show_name: false
+    color: auto
+    color_type: icon
+    size: 57%
+    state:
+      - value: 'off'
+        color: rgb(50, 50, 50)
+    styles:
+      card:
+        - font-size: 12px
+        - '--mdc-ripple-color': gainsboro
+        - '--mdc-ripple-press-opacity': 0.5
+  lights2:
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    show_name: true
+    show_state: false
+    color: auto
+    color_type: icon
+    size: 57%
+    styles:
+      card:
+        - font-size: 12px
+        - '--mdc-ripple-color': gainsboro
+        - '--mdc-ripple-press-opacity': 0.5
+    state:
+      - value: 'off'
+        color: rgb(50, 50, 50)
+  lights_submenu:
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    double_tap_action:
+      action: call-service
+      service: input_select.select_option
+      service_data:
+        entity_id: input_select.submenu_select
+        option: Blank
+    show_name: true
+    show_state: false
+    color: auto
+    color_type: icon
+    size: 57%
+    styles:
+      card:
+        - font-size: 12px
+        - height: 140px
+        - padding: 4%
+        - width: 200px
+        - background-color: black
+        - border-radius: 25px
+        - border-style: inset
+        - border-width: 3px
+      grid:
+        - grid-template-areas: '"i n" "i n" "buttons buttons"'
+        - grid-template-columns: 1fr 1fr
+        - grid-template-rows: 1fr min-content min-content
+      img_cell:
+        - align-self: start
+        - text-align: start
+      name:
+        - font-weight: 300
+        - font-size: 18px
+        - align-self: middle
+        - justify-self: middle
+      icon:
+        - color: white
+        - width: 50px
+        - align-self: start
+      custom_fields:
+        buttons:
+          - margin: 0
+          - padding: 0.3em
+  battery_status:
+    tap_action: none
+    hold_action: none
+    double_tap_action: none
+    show_state: true
+    color: rgb(0, 175, 0)
+    show_name: true
+    icon_color: |
+      if (state = 'Charging') return 'rgb(255,140,0)';
+      if (state = 'Not Charging') return 'rgb(120,120,120)';
+    state:
+      - value: 0
+        color: rgb(255, 255, 255)
+        icon: mdi:battery-off
+      - value: 10
+        operator: <=
+        color: rgb(255, 0, 0)
+        icon: mdi:battery-10
+        styles:
+          icon:
+            - animation: blink 2s infinite
+      - value: 20
+        operator: <=
+        color: rgb(255, 255, 0)
+        icon: mdi:battery-20
+      - value: null
+    color_type: icon
+    size: 50%
+    styles:
+      card:
+        - font-size: 12px
+views:
+  - title: Home
+    cards:
+      - cards:
+          - type: vertical-stack
+            cards:
+              - background: transparent
+                entities:
+                  - entity: cover.garage_door
+                    type: garage
+                  - entity: person.keith
+                    state_map:
+                      'off': away
+                      'on': home
+                    type: car2
+                  - entity: input_boolean.mail
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: mail
+                  - entity: input_boolean.amazon_delivered
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: amazon-delivered
+                  - entity: input_boolean.fedex_delivered
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: fedex-delivered
+                  - entity: input_boolean.ups_delivered
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: ups-delivered
+                  - entity: light.guest_room_lights
+                    type: downstairs_light
+                  - entity: light.office_lights
+                    type: office_light
+                  - entity: light.master_bedroom_lights
+                    type: upstairs_light
+                  - entity: light.front_porch_light
+                    type: door
+                  - entity: light.outside_lights
+                    type: outside_light
+                  - entity: light.living_room_lights
+                    type: garage2
+                  - entity: light.guest_room_lights
+                    type: flag
+                theme: ranch_with_three_stall_garage
+                type: custom:home-card
+                weather: weather.home
+              - cards:
+                  - entity: binary_sensor.front_door_open
+                    extra_styles: |
+                      @keyframes pulse {
+                        0% {
+                          -moz-box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                          box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                        }
+                        70% {
+                            -moz-box-shadow: 0 0 0 10px rrgba(240,52,52, 0.9);
+                            box-shadow: 0 0 0 10px rgba(240,52,52, 0.7);
+                        }
+                        100% {
+                            -moz-box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                            box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                        }
+                      }
+                    tap_action: none
+                    icon: mdi:door
+                    show_name: false
+                    state:
+                      - icon: mdi:door
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: black
+                        value: 'off'
+                      - icon: mdi:door-open
+                        name: OPEN
+                        operator: default
+                        styles:
+                          icon:
+                            - animation: blink 2s infinite
+                            - width: 75%
+                            - color: red
+                      - icon: mdi:door
+                        name: Unavailable
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(128, 128, 128)
+                        value: unavailable
+                      - icon: mdi:door
+                        name: Unknown
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(0, 255, 255)
+                        value: unknown
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: lock.front_door
+                    extra_styles: |
+                      @keyframes pulse {
+                        0% {
+                          -moz-box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                          box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                        }
+                        70% {
+                            -moz-box-shadow: 0 0 0 10px rrgba(240,52,52, 0.9);
+                            box-shadow: 0 0 0 10px rgba(240,52,52, 0.7);
+                        }
+                        100% {
+                            -moz-box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                            box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                        }
+                      }
+                    show_name: false
+                    tap_action: none
+                    state:
+                      - icon: mdi:lock
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: black
+                        value: locked
+                      - icon: mdi:lock-open
+                        name: UNLOCKED
+                        operator: default
+                        styles:
+                          icon:
+                            - animation: blink 2s infinite
+                            - width: 75%
+                            - color: red
+                        value: unlocked
+                      - icon: mdi:lock
+                        name: Unavailable
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(128, 128, 125)
+                        value: unavailable
+                      - icon: mdi:lock
+                        name: Unknown
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(0, 255, 255)
+                          name:
+                            - padding: 5px
+                            - font-size: 10px
+                            - text-overflow: unset
+                            - white-space: unset
+                            - word-break: break-word
+                            - color: rgb(0, 255, 255)
+                        value: unknown
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: input_boolean.fedex_delivering
+                    show_name: false
+                    tap_action: none
+                    icon: mdi:truck-delivery-outline
+                    color: dodgerblue
+                    size: 75%
+                    state:
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                        value: 'on'
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - color: black
+                        value: 'off'
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: switch.garage_opener
+                    show_name: false
+                    tap_action: none
+                    state:
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: black
+                        value: 'on'
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - color: rgb(100, 100, 100)
+                        value: 'off'
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: cover.garage_door
+                    extra_styles: |
+                      @keyframes pulse {
+                        0% {
+                          -moz-box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                          box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                        }
+                        70% {
+                            -moz-box-shadow: 0 0 0 10px rrgba(240,52,52, 0.9);
+                            box-shadow: 0 0 0 10px rgba(240,52,52, 0.7);
+                        }
+                        100% {
+                            -moz-box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                            box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                        }
+                      }
+                    icon: mdi:garage
+                    tap_action: none
+                    name: Closed
+                    show_name: false
+                    state:
+                      - icon: mdi:garage-variant
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: black
+                        value: closed
+                      - icon: mdi:garage-open-variant
+                        name: OPEN
+                        operator: default
+                        styles:
+                          icon:
+                            - animation: blink 2s infinite
+                            - width: 75%
+                            - color: red
+                            - word-break: break-word
+                        value: open
+                      - icon: mdi:garage-alert-variant
+                        name: Unavailable
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(128, 128, 125)
+                        value: unavailable
+                      - icon: mdi:garage-alert-variant
+                        name: Unknown
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(0, 255, 255)
+                        value: unknown
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: sensor.mail_amazon_packages
+                    show_name: false
+                    tap_action: none
+                    icon: mdi:amazon
+                    size: 75%
+                    color_type: icon
+                    styles:
+                      icon:
+                        - color: |
+                            [[[
+                              if (entity.state > 0) return 'whitesmoke';
+                              else return 'black';
+                            ]]]
+                    type: custom:button-card
+                  - entity: input_boolean.guest
+                    show_name: false
+                    tap_action: none
+                    state:
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: lime
+                        value: 'on'
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - color: black
+                        value: 'off'
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: lock.back_door
+                    extra_styles: |
+                      @keyframes pulse {
+                        0% {
+                          -moz-box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                          box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                        }
+                        70% {
+                            -moz-box-shadow: 0 0 0 10px rrgba(240,52,52, 0.9);
+                            box-shadow: 0 0 0 10px rgba(240,52,52, 0.7);
+                        }
+                        100% {
+                            -moz-box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                            box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                        }
+                      }
+                    name: Locked
+                    tap_action: none
+                    show_name: false
+                    state:
+                      - icon: mdi:lock
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: black
+                        value: locked
+                      - icon: mdi:lock-open
+                        name: UNLOCKED
+                        operator: default
+                        styles:
+                          icon:
+                            - animation: blink 2s infinite
+                            - width: 75%
+                            - color: red
+                        value: unlocked
+                      - icon: mdi:lock
+                        name: Unavailable
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(128, 128, 125)
+                        value: unavailable
+                      - icon: mdi:lock
+                        name: Unknown
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(0, 255, 255)
+                        value: unknown
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: binary_sensor.back_door_open
+                    extra_styles: |
+                      @keyframes pulse {
+                        0% {
+                          -moz-box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                          box-shadow: 0 0 0 0 rgba(255,0,0, 0.7);
+                        }
+                        70% {
+                            -moz-box-shadow: 0 0 0 10px rrgba(240,52,52, 0.9);
+                            box-shadow: 0 0 0 10px rgba(240,52,52, 0.7);
+                        }
+                        100% {
+                            -moz-box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                            box-shadow: 0 0 0 0 rgba(240,52,52, 0);
+                        }
+                      }
+                    icon: mdi:door
+                    name: Closed
+                    tap_action: none
+                    show_name: false
+                    state:
+                      - icon: mdi:door
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: black
+                        value: 'off'
+                      - icon: mdi:door-open
+                        name: OPEN
+                        operator: default
+                        styles:
+                          icon:
+                            - animation: blink 2s infinite
+                            - width: 75%
+                            - color: red
+                        value: 'on'
+                      - icon: mdi:door
+                        name: Unavailable
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(128, 128, 125)
+                        value: unavailable
+                      - icon: mdi:door
+                        name: Unknown
+                        styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                            - color: rgb(0, 255, 255)
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                  - entity: input_boolean.ups_delivering
+                    show_name: false
+                    tap_action: none
+                    icon: mdi:truck-delivery-outline
+                    color: tan
+                    size: 75%
+                    state:
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - opacity: 0.5
+                        value: 'on'
+                      - styles:
+                          card: null
+                          icon:
+                            - width: 75%
+                            - color: black
+                        value: 'off'
+                    type: custom:button-card
+                    style:
+                      .: |
+                        ha-card {
+                          background-color: transparent !important;
+                          box-shadow: none !important;
+                        }
+                type: horizontal-stack
+          - type: horizontal-stack
+            cards:
+              - type: custom:swipe-card
+                start_card: 2
+                card_width: 225px
+                parameters:
+                  effect: coverflow
+                  grabCursor: true
+                  centeredSlides: true
+                  slidesPerView: auto
+                  preloadImages: true
+                  shortSwipes: true
+                  freeModeSticky: true
+                  coverflowEffect:
+                    rotate: 5
+                    stretch: -5
+                    depth: 250
+                    modifier: 3
+                    slideShadows: false
+                cards:
+                  - type: custom:button-card
+                    entity: input_select.menu_select
+                    name: Lights
+                    icon: mdi:home-lightbulb-outline
+                    template: menu_select
+                    styles:
+                      card:
+                        - border-color: cyan
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.menu_select
+                        option: Lights
+                  - type: custom:button-card
+                    entity: input_select.menu_select
+                    name: Weather
+                    icon: mdi:weather-partly-snowy-rainy
+                    template: menu_select
+                    styles:
+                      card:
+                        - border-color: green
+                        - border-style: solid
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.menu_select
+                        option: Weather
+                  - type: custom:button-card
+                    entity: input_select.menu_select
+                    name: Doors
+                    icon: mdi:garage-variant
+                    template: menu_select
+                    styles:
+                      card:
+                        - border-color: red
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.menu_select
+                        option: Doors
+          - type: conditional
+            conditions:
+              - entity: input_select.menu_select
+                state: Lights
+            card:
+              cards:
+                - type: custom:swipe-card
+                  start_card: 2
+                  card_width: 225px
+                  parameters:
+                    effect: coverflow
+                    grabCursor: true
+                    centeredSlides: true
+                    slidesPerView: auto
+                    preloadImages: true
+                    shortSwipes: true
+                    freeModeSticky: true
+                    coverflowEffect:
+                      rotate: 5
+                      stretch: -15
+                      depth: 250
+                      modifier: 3
+                      slideShadows: false
+                  cards:
+                    - type: custom:button-card
+                      entity: lights.outside_lights
+                      name: Outside<br>Lights
+                      icon: phu:rooms-outdoor
+                      template: lights_submenu
+                      layout: icon_name
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.submenu_select
+                          option: Outside
+                      hold_action:
+                        action: call-service
+                        service: light.toggle
+                        service_data:
+                          entity_id: light.outside_lights
+                      styles:
+                        card:
+                          - border-color: cyan
+                      custom_fields:
+                        buttons:
+                          card:
+                            type: horizontal-stack
+                            cards:
+                              - entity: light.front_porch_light
+                                name: Outside
+                                icon: bha:outdoor-lamp-solo
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.garage_door_light
+                                name: Garage
+                                icon: mdi:garage-variant
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.rear_deck_light
+                                name: Back Door
+                                color: white
+                                template: lights
+                                icon: bha:outdoor-lamp-solo
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                    - type: custom:button-card
+                      entity: light.living_room_lights
+                      name: Living<br>Room
+                      icon: phu:rooms-living
+                      template: lights_submenu
+                      layout: icon_name
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.submenu_select
+                          option: Living Room
+                      hold_action:
+                        action: call-service
+                        service: light.toggle
+                        service_data:
+                          entity_id: light.living_room_lights
+                      styles:
+                        card:
+                          - border-color: cyan
+                      custom_fields:
+                        buttons:
+                          card:
+                            type: horizontal-stack
+                            cards:
+                              - entity: light.window
+                                name: Window
+                                icon: phu:table-shade
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.reading_lamp
+                                name: Reading
+                                icon: phu:table-shade
+                                color: white
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.corner
+                                name: Corner
+                                icon: phu:floor-shade
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.tv_stand
+                                name: TV Stand
+                                icon: phu:light-strip
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                    - type: custom:button-card
+                      entity: light.office_lights
+                      name: Office
+                      icon: mdi:desktop-mac-dashboard
+                      layout: icon_name
+                      template: lights_submenu
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.submenu_select
+                          option: Office
+                      hold_action:
+                        action: call-service
+                        service: light.toggle
+                        service_data:
+                          entity_id: light.office_lights
+                      styles:
+                        card:
+                          - border-color: cyan
+                      custom_fields:
+                        buttons:
+                          card:
+                            type: horizontal-stack
+                            cards:
+                              - entity: light.office_light
+                                name: Office
+                                template: lights
+                                icon: phu:floor-shade
+                                color: white
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.office_globe
+                                name: Globe
+                                template: lights
+                                icon: mdi:circle
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: light.office_bloom
+                                name: Bloom
+                                icon: phu:bloom
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                - type: custom:state-switch
+                  entity: input_select.submenu_select
+                  transition: none
+                  default: Blank
+                  states:
+                    Outside:
+                      type: horizontal-stack
+                      title: Outside
+                      cards:
+                        - type: custom:button-card
+                          entity: light.front_porch_light
+                          template: lights2
+                          icon: bha:outdoor-lamp-solo
+                          name: Front Door
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.garage_door_light
+                          template: lights2
+                          icon: bha:outdoor-lamp-solo
+                          name: Garage
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.rear_deck_light
+                          template: lights2
+                          icon: bha:outdoor-lamp-solo
+                          color: white
+                          name: Rear Deck
+                    Office:
+                      type: horizontal-stack
+                      title: Office
+                      cards:
+                        - type: custom:button-card
+                          entity: light.office_light
+                          name: Office
+                          template: lights2
+                          icon: phu:floor-shade
+                          color: white
+                          state:
+                            - value: 'off'
+                              color: rgb(50, 50, 50)
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.office_globe
+                          name: Globe
+                          template: lights2
+                          state:
+                            - value: 'on'
+                              icon: mdi:circle
+                            - value: 'off'
+                              icon: mdi:circle-outline
+                              color: rgb(50, 50, 50)
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.office_bloom
+                          name: Bloom
+                          template: lights2
+                          icon: phu:bloom
+                          state:
+                            - value: 'on'
+                              icon: phu:bloom
+                            - value: 'off'
+                              icon: phu:bloom
+                              color: rgb(50, 50, 50)
+                    Bedroom:
+                      type: horizontal-stack
+                      title: Bedroom
+                      cards:
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.nightstand
+                          template: lights2
+                          icon: phu:table-shade
+                          name: Nightstand
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.dresser
+                          name: Dresser
+                          template: lights2
+                          state:
+                            - value: 'on'
+                              icon: mdi:circle
+                            - value: 'off'
+                              icon: mdi:circle-outline
+                              color: rgb(50, 50, 50)
+                        - type: custom:button-card
+                          color_type: blank-card
+                    Living Room:
+                      type: horizontal-stack
+                      title: Living Room
+                      cards:
+                        - type: custom:button-card
+                          entity: light.window
+                          template: lights2
+                          icon: phu:table-shade
+                          name: Window
+                        - type: custom:button-card
+                          entity: light.reading_lamp
+                          template: lights2
+                          icon: phu:table-shade
+                          color: white
+                          name: Corner
+                        - type: custom:button-card
+                          entity: light.corner
+                          template: lights2
+                          icon: phu:floor-shade
+                          name: Corner
+                        - type: custom:button-card
+                          entity: light.tv_stand
+                          template: lights2
+                          icon: phu:light-strip
+                          name: TV Stand
+                        - type: custom:button-card
+                          entity: light.ceiling_light
+                          template: lights2
+                          icon: bha:ceiling-spot-lamp
+                          color: white
+                          name: Ceiling
+                    Bathroom:
+                      type: horizontal-stack
+                      title: Bathroom
+                      cards:
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.bathroom_light
+                          color: white
+                          name: Bathroom
+                          template: lights2
+                          state:
+                            - value: 'on'
+                              icon: phu:light-string
+                            - value: 'off'
+                              icon: phu:light-string
+                              color: rgb(50, 50, 50)
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.bathroom_fan
+                          template: lights2
+                          icon: mdi:fan
+                          color: white
+                          name: Fan
+                          state:
+                            - spin: true
+                              value: 'on'
+                        - type: custom:button-card
+                          color_type: blank-card
+                    Guest Room:
+                      type: horizontal-stack
+                      title: Guest Room
+                      cards:
+                        - type: custom:button-card
+                          entity: light.guest_room_lamp
+                          template: lights2
+                          icon: phu:table-shade
+                          color: white
+                          name: Guest Light
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          tap_action:
+                            action: toggle
+                          entity: input_boolean.guest
+                          show_state: false
+                          show_name: false
+                          name: Guest Mode
+                          state:
+                            - value: 'off'
+                              color: rgb(50, 50, 50)
+                              icon: mdi:account-star-outline
+                            - value: 'on'
+                              color: rgb(0,175, 0)
+                              icon: mdi:account-star
+                          color: auto
+                          color_type: icon
+                          size: 60%
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: light.guest_strip
+                          template: lights2
+                          icon: phu:light-strip
+                          name: Light Strip
+                    Mood Lights:
+                      type: horizontal-stack
+                      title: Special Lighting
+                      cards:
+                        - type: custom:button-card
+                          entity: script.mood_lighting_on
+                          template: lights2
+                          icon: mdi:fire
+                          color: red
+                          name: Turn On
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: script.mood_lighting_off
+                          template: lights2
+                          icon: mdi:fire
+                          color: red
+                          name: Turn Off
+                        - type: custom:button-card
+                          color_type: blank-card
+                        - type: custom:button-card
+                          entity: script.front_lights_colorloop
+                          template: lights2
+                          icon: mdi:string-lights
+                          color: red
+                          name: Christmas
+                    Blank:
+                      type: custom:button-card
+                      color_type: blank-card
+              type: vertical-stack
+          - type: conditional
+            conditions:
+              - entity: input_select.menu_select
+                state: Weather
+            card:
+              type: vertical-stack
+              cards:
+                - type: vertical-stack
+                  cards:
+                    - type: custom:swipe-card
+                      start_card: 2
+                      parameters:
+                        effect: coverflow
+                        grabCursor: true
+                        centeredSlides: true
+                        slidesPerView: auto
+                        preloadImages: true
+                        shortSwipes: true
+                        freeModeSticky: true
+                        coverflowEffect:
+                          rotate: 5
+                          stretch: -10
+                          depth: 250
+                          modifier: 10
+                          slideShadows: false
+                      cards:
+                        - type: thermostat
+                          entity: climate.wall_e
+                        - type: vertical-stack
+                          cards:
+                            - type: custom:button-card
+                              label: Home
+                              show_label: true
+                            - type: custom:weather-card
+                              entity: weather.home
+                              number_of_forecasts: '5'
+                              current: false
+                              hold_action:
+                                action: url
+                                url_path:'http: http://www.google.com
+                        - type: vertical-stack
+                          cards:
+                            - type: custom:button-card
+                              label: Venice
+                              show_label: true
+                            - type: custom:weather-card
+                              entity: weather.venice
+                              number_of_forecasts: '5'
+                              current: true
+                              details: false
+                        - type: vertical-stack
+                          cards:
+                            - type: custom:button-card
+                              label: Punta Gorda
+                              show_label: true
+                            - type: custom:weather-card
+                              entity: weather.punta_gorda
+                              number_of_forecasts: '5'
+                              current: true
+                              details: false
+          - type: conditional
+            conditions:
+              - entity: input_select.menu_select
+                state: Doors
+            card:
+              cards:
+                - type: custom:swipe-card
+                  start_card: 2
+                  card_width: 225px
+                  parameters:
+                    effect: coverflow
+                    grabCursor: true
+                    centeredSlides: true
+                    slidesPerView: auto
+                    preloadImages: true
+                    shortSwipes: true
+                    freeModeSticky: true
+                    coverflowEffect:
+                      rotate: 5
+                      stretch: -15
+                      depth: 250
+                      modifier: 3
+                      slideShadows: false
+                  cards:
+                    - type: custom:button-card
+                      entity: light.front_porch_light
+                      name: Front<br>Door
+                      icon: mdi:door
+                      template: lights_submenu
+                      layout: icon_name
+                      show_state: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.submenu_select
+                          option: Front Door
+                      styles:
+                        card:
+                          - border-color: red
+                      custom_fields:
+                        buttons:
+                          card:
+                            type: horizontal-stack
+                            cards:
+                              - entity: light.front_porch_light
+                                name: Outside
+                                icon: bha:outdoor-lamp-solo
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: binary_sensor.front_door_open
+                                name: Garage
+                                template: doors
+                                show_name: false
+                                show_state: false
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: sensor.front_door_battery
+                                template: battery_status
+                                show_name: false
+                                show_state: false
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                color_type: icon
+                                type: custom:button-card
+                              - entity: lock.front_door
+                                template: swipe_locks
+                                tap_action: none
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                show_name: false
+                                show_state: false
+                                color_type: icon
+                                type: custom:button-card
+                    - type: custom:button-card
+                      entity: light.garage_door_light
+                      name: Garage<br>Door
+                      icon: mdi:garage-variant
+                      layout: icon_name
+                      template: lights_submenu
+                      show_state: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.submenu_select
+                          option: Garage Door
+                      styles:
+                        card:
+                          - border-color: red
+                      custom_fields:
+                        buttons:
+                          card:
+                            type: horizontal-stack
+                            cards:
+                              - entity: light.garage_door_light
+                                name: Outside
+                                show_name: false
+                                show_state: false
+                                icon: bha:outdoor-lamp-solo
+                                template: lights
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: switch.garage_opener
+                                type: custom:button-card
+                                color: rgb(200, 200, 0)
+                                state:
+                                  - value: 'off'
+                                    color: rgb(100, 100, 100)
+                                template: swipe_locks
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                show_name: false
+                                show_state: false
+                                color_type: icon
+                              - entity: sensor.garage_door_sensor_power
+                                template: battery_status
+                                show_name: false
+                                show_state: false
+                                color: rgb(0, 175, 0)
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                color_type: icon
+                                type: custom:button-card
+                              - entity: cover.garage_door
+                                icon: mdi:garage-variant
+                                color: rgb(0, 175, 0)
+                                state:
+                                  - value: open
+                                    color: rgb(255, 0, 0)
+                                    icon: mdi:garage-open-variant
+                                    styles:
+                                      icon:
+                                        - animation: blink 2s infinite
+                                  - value: opening
+                                    color: rgb(200, 200, 0)
+                                    icon: mdi:garage-alert-variant
+                                  - value: closing
+                                    color: rgb(200, 200, 0)
+                                    icon: mdi:garage-alert-variant
+                                  - value: unavailable
+                                    color: rgb(0, 255, 255)
+                                    icon: mdi:garage-alert-variant
+                                template: swipe_locks
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                show_name: false
+                                show_state: false
+                                color_type: icon
+                                type: custom:button-card
+                    - type: custom:button-card
+                      entity: light.rear_deck_light
+                      name: Back<br>Door
+                      icon: mdi:door
+                      template: lights_submenu
+                      layout: icon_name
+                      show_state: false
+                      tap_action:
+                        action: call-service
+                        service: input_select.select_option
+                        service_data:
+                          entity_id: input_select.submenu_select
+                          option: Back Door
+                      show_icon: true
+                      styles:
+                        card:
+                          - border-color: red
+                      custom_fields:
+                        buttons:
+                          card:
+                            type: horizontal-stack
+                            cards:
+                              - entity: light.rear_deck_light
+                                name: Outside
+                                tap_action: none
+                                show_name: false
+                                show_state: false
+                                icon: bha:outdoor-lamp-solo
+                                template: lights
+                                color: white
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: binary_sensor.back_door_open
+                                tap_action: none
+                                show_name: false
+                                show_state: false
+                                template: doors
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                type: custom:button-card
+                              - entity: sensor.back_door_battery
+                                template: battery_status
+                                color: rgb(0, 175, 0)
+                                show_name: false
+                                show_state: false
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                color_type: icon
+                                type: custom:button-card
+                              - entity: lock.back_door
+                                template: swipe_locks
+                                tap_action: none
+                                styles:
+                                  card:
+                                    - background-color: transparent
+                                  icon:
+                                    - width: 30px
+                                show_name: false
+                                show_state: false
+                                color_type: icon
+                                type: custom:button-card
+                - type: custom:state-switch
+                  entity: input_select.submenu_select
+                  default: Blank
+                  transition: none
+                  states:
+                    Front Door:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          title: Front Door
+                          cards:
+                            - type: custom:button-card
+                              entity: light.front_porch_light
+                              template: lights2
+                              icon: bha:outdoor-lamp-solo
+                              name: Front Door
+                              size: 50%
+                            - type: custom:button-card
+                              entity: binary_sensor.front_door_open
+                              template: doors
+                              show_state: true
+                              show_name: false
+                              color_type: icon
+                              size: 50%
+                              name: Front Door
+                            - type: custom:button-card
+                              entity: sensor.front_door_battery
+                              template: battery_status
+                              size: 50%
+                              show_name: false
+                            - type: custom:button-card
+                              entity: lock.front_door
+                              template: locks
+                              show_name: false
+                              show_state: true
+                              color_type: icon
+                              name: Front Door
+                              size: 50%
+                        - type: entities
+                          entities:
+                            - entity: sensor.front_door_operator
+                    Garage Door:
+                      type: horizontal-stack
+                      title: Garage Door
+                      cards:
+                        - type: custom:button-card
+                          entity: light.garage_door_light
+                          template: lights2
+                          icon: bha:outdoor-lamp-solo
+                          size: 50%
+                          name: Garage
+                        - type: custom:button-card
+                          entity: script.toggle_garage_door
+                          icon: mdi:gesture-tap-button
+                          color_type: icon
+                          color: rgb(0, 255, 255)
+                          size: 50%
+                          styles:
+                            card:
+                              - font-size: 12px
+                              - '--mdc-ripple-color': gainsboro
+                              - '--mdc-ripple-press-opacity': 0.5
+                          tap_action:
+                            action: toggle
+                          hold_action:
+                            action: call_service
+                          double_tap_action:
+                            action: call_service
+                          show_name: true
+                          confirmation:
+                            text: >-
+                              [[[ return ` ${entity.attributes.friendly_name}!
+                              Are you sure?` ]]]
+                          lock:
+                            enabled: true
+                            unlock: tap
+                            duration: 5
+                          name: Garage Door
+                        - type: custom:button-card
+                          entity: sensor.garage_door_sensor_power
+                          template: battery_status
+                          show_state: true
+                          show_name: false
+                          color: rgb(0, 175, 0)
+                          state:
+                            - value: 4
+                              color: rgb(255, 0, 0)
+                            - value: 3
+                              color: rgb(255, 0, 0)
+                            - value: 2
+                              color: rgb(255, 0, 0)
+                            - value: 1
+                              color: rgb(255, 0, 0)
+                            - value: 0
+                              color: rgb(255, 0, 0)
+                            - value: unavailable
+                              color: rgb(0, 255, 255)
+                          color_type: icon
+                          size: 50%
+                        - type: custom:button-card
+                          entity: cover.garage_door
+                          show_name: false
+                          show_state: true
+                          template: locks
+                          icon: mdi:garage-variant
+                          color: rgb(0, 175, 0)
+                          state:
+                            - value: open
+                              color: rgb(255, 0, 0)
+                              icon: mdi:garage-open-variant
+                              styles:
+                                icon:
+                                  - animation: blink 2s infinite
+                            - value: opening
+                              color: rgb(200, 200, 0)
+                              icon: mdi:garage-alert-variant
+                            - value: closing
+                              color: rgb(200, 200, 0)
+                              icon: mdi:garage-alert-variant
+                            - value: unavailable
+                              color: rgb(0, 255, 255)
+                              icon: mdi:garage-alert-variant
+                          size: 50%
+                          tap_action:
+                            action: call-service
+                            service: automation.trigger
+                            service_data:
+                              entity_id: automation.toggle_garage_door_open_closed
+                    Back Door:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          title: Back Door
+                          cards:
+                            - type: custom:button-card
+                              entity: light.rear_deck_light
+                              template: lights2
+                              color: white
+                              icon: bha:outdoor-lamp-solo
+                              name: Back Door
+                              size: 50%
+                            - type: custom:button-card
+                              entity: binary_sensor.back_door_open
+                              template: doors
+                              show_state: true
+                              show_name: false
+                              color_type: icon
+                              size: 50%
+                              name: Front Door
+                            - type: custom:button-card
+                              entity: sensor.back_door_battery
+                              template: battery_status
+                              show_state: true
+                              show_name: false
+                              color: rgb(0, 175, 0)
+                              state:
+                                - value: 4
+                                  color: rgb(255, 0, 0)
+                                - value: 3
+                                  color: rgb(255, 0, 0)
+                                - value: 2
+                                  color: rgb(255, 0, 0)
+                                - value: 1
+                                  color: rgb(255, 0, 0)
+                                - value: 0
+                                  color: rgb(255, 0, 0)
+                                - value: unavailable
+                                  color: rgb(0, 255, 255)
+                              color_type: icon
+                              size: 50%
+                            - type: custom:button-card
+                              entity: lock.back_door
+                              template: locks
+                              show_name: false
+                              show_state: true
+                              color_type: icon
+                              name: Back Door
+                              size: 50%
+                        - type: entities
+                          entities:
+                            - entity: sensor.back_door_operator
+                    Blank:
+                      type: custom:button-card
+                      color_type: blank-card
+              type: vertical-stack
+        type: vertical-stack
