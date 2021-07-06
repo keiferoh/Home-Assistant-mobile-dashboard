@@ -60,9 +60,10 @@
  4. Create two (2) Dropdown helpers: "Menu Select" and "Submenu Select"
     Menu Select - The main menu
     For my example you will need to add "Lights", "Weather" and "Doors"
+#
     Submenu Select - the separate menus for Lights and Doors
     For my example you will need to add "Outside", "Office", "Living Room",
-    "Front Door", "Garage Door" and "Back Door"
+    "Front Door", "Garage Door", "Back Door" and "Blank". 
 #
 At this point you will need to edit the individual cards or the raw yaml
 in order to replace my entities with yours.
