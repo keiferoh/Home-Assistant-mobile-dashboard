@@ -217,26 +217,6 @@ views:
                       'off': away
                       'on': home
                     type: car2
-                  - entity: input_boolean.mail
-                    state_map:
-                      'off': 'off'
-                      'on': 'on'
-                    type: mail
-                  - entity: input_boolean.amazon_delivered
-                    state_map:
-                      'off': 'off'
-                      'on': 'on'
-                    type: amazon-delivered
-                  - entity: input_boolean.fedex_delivered
-                    state_map:
-                      'off': 'off'
-                      'on': 'on'
-                    type: fedex-delivered
-                  - entity: input_boolean.ups_delivered
-                    state_map:
-                      'off': 'off'
-                      'on': 'on'
-                    type: ups-delivered
                   - entity: light.guest_room_lights
                     type: downstairs_light
                   - entity: light.office_lights
@@ -384,32 +364,6 @@ views:
                           background-color: transparent !important;
                           box-shadow: none !important;
                         }
-                  - entity: input_boolean.fedex_delivering
-                    show_name: false
-                    tap_action: none
-                    icon: mdi:truck-delivery-outline
-                    color: dodgerblue
-                    size: 75%
-                    state:
-                      - styles:
-                          card: null
-                          icon:
-                            - width: 75%
-                            - opacity: 0.5
-                        value: 'on'
-                      - styles:
-                          card: null
-                          icon:
-                            - width: 75%
-                            - color: black
-                        value: 'off'
-                    type: custom:button-card
-                    style:
-                      .: |
-                        ha-card {
-                          background-color: transparent !important;
-                          box-shadow: none !important;
-                        }
                   - entity: switch.garage_opener
                     show_name: false
                     tap_action: none
@@ -498,20 +452,6 @@ views:
                           background-color: transparent !important;
                           box-shadow: none !important;
                         }
-                  - entity: sensor.mail_amazon_packages
-                    show_name: false
-                    tap_action: none
-                    icon: mdi:amazon
-                    size: 75%
-                    color_type: icon
-                    styles:
-                      icon:
-                        - color: |
-                            [[[
-                              if (entity.state > 0) return 'whitesmoke';
-                              else return 'black';
-                            ]]]
-                    type: custom:button-card
                   - entity: input_boolean.guest
                     show_name: false
                     tap_action: none
@@ -653,32 +593,6 @@ views:
                             - width: 75%
                             - opacity: 0.5
                             - color: rgb(0, 255, 255)
-                    type: custom:button-card
-                    style:
-                      .: |
-                        ha-card {
-                          background-color: transparent !important;
-                          box-shadow: none !important;
-                        }
-                  - entity: input_boolean.ups_delivering
-                    show_name: false
-                    tap_action: none
-                    icon: mdi:truck-delivery-outline
-                    color: tan
-                    size: 75%
-                    state:
-                      - styles:
-                          card: null
-                          icon:
-                            - width: 75%
-                            - opacity: 0.5
-                        value: 'on'
-                      - styles:
-                          card: null
-                          icon:
-                            - width: 75%
-                            - color: black
-                        value: 'off'
                     type: custom:button-card
                     style:
                       .: |
