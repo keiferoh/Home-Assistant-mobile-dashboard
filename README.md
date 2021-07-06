@@ -59,10 +59,10 @@
  3. Click "+ Add Helper" from the lower right corner
  4. Create two (2) Dropdown helpers: "Menu Select" and "Submenu Select"
 
- Menu Select - The main menu
+ Menu Select - The main swipe menu.
  For my example you will need to add "Lights", "Weather" and "Doors"
 #
- Submenu Select - the separate menus for Lights and Doors
+ Submenu Select - the separate menus for Lights and Doors. 
  For my example you will need to add "Outside", "Office", "Living Room",
  "Front Door", "Garage Door", "Back Door" and "Blank".
 #
