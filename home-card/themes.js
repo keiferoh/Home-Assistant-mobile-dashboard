@@ -156,7 +156,7 @@ export const THEMES = {
           },
           {
             'image': 'outside-light-on.png',
-            'style': { 'width': '13%', 'left': '38.25%', 'top': '65%', 'z-index': '20' },
+            'style': { 'width': '14%', 'left': '38.75%', 'top': '65%', 'z-index': '20' },
           },
           {
             'image': 'outside-lamp-on.png',
@@ -178,7 +178,7 @@ export const THEMES = {
           },
           {
             'image': 'outside-light-off.png',
-            'style': { 'width': '13%', 'left': '38.25%', 'top': '65%', 'z-index': '20' },
+            'style': { 'width': '13%', 'left': '38.75%', 'top': '65%', 'z-index': '20' },
           },
           {
             'image': 'outside-lamp-off.png',
@@ -280,7 +280,7 @@ export const THEMES = {
         'on': [
           {
             'image': 'ups.png',
-            'style': { 'width': '4%', 'left': '37.0%', 'top': '75%', 'z-index': '19' },
+            'style': { 'width': '4%', 'left': '37.5%', 'top': '75%', 'z-index': '19' },
           },
         ],
       },
