@@ -1,7 +1,7 @@
 # Home Assistant Mobile Dashboard
 #
  This repository contains the raw configuration for my
- Home Assistant Mobile Dashboard
+ Home Assistant Mobile Dashboard.
  You will need the following custom components:
 #
  Custom Button Card:
