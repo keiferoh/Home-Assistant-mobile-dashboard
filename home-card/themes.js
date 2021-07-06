@@ -90,7 +90,7 @@ export const THEMES = {
         'on': [
           {
             'image': 'flag.gif',
-            'style': { 'width': '8%', 'left': '50.1%', 'top': '44.5%', 'z-index': '20'},
+            'style': { 'width': '10%', 'left': '50.1%', 'top': '44.5%', 'z-index': '20'},
           },
           {
             'image': 'flagpole.png',
@@ -100,7 +100,7 @@ export const THEMES = {
         'off': [
           {
             'image': 'flag.gif',
-            'style': { 'width': '8%', 'left': '50.1%', 'top': '44.5%', 'z-index': '20'},
+            'style': { 'width': '10%', 'left': '50.1%', 'top': '44.5%', 'z-index': '20'},
           },
           {
             'image': 'flagpole.png',
@@ -151,54 +151,46 @@ export const THEMES = {
       'outside_light': {
         'on': [
           {
-            'image': 'outside-light-on.png',
-            'style': { 'width': '6%', 'left': '12.3%', 'top': '70.5%', 'z-index': '10' },
+            'image': 'door-close.png',
+            'style': { 'width': '5.8%', 'left': '32.15%', 'top': '61.25%', 'z-index': '10'},
           },
           {
             'image': 'outside-light-on.png',
-            'style': { 'width': '6%', 'left': '21.2%', 'top': '70.5%', 'z-index': '10' },
-          },
-          {
-            'image': 'outside-light-on.png',
-            'style': { 'width': '6%', 'left': '42.8%', 'top': '70.5%', 'z-index': '10' },
+            'style': { 'width': '13%', 'left': '38.25%', 'top': '65%', 'z-index': '20' },
           },
           {
             'image': 'outside-lamp-on.png',
-            'style': { 'width': '1.4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
           },
           {
             'image': 'outside-lamp-on.png',
-            'style': { 'width': '1.4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
           },
           {
             'image': 'outside-lamp-on.png',
-            'style': { 'width': '1.4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
           },
         ],
         'off': [
           {
-            'image': 'outside-light-off.png',
-            'style': { 'width': '6%', 'left': '12.3%', 'top': '70.5%', 'z-index': '10' },
+            'image': 'door-open.png',
+            'style': { 'width': '5.8%', 'left': '32.15%', 'top': '61.25%', 'z-index': '10'},
           },
           {
             'image': 'outside-light-off.png',
-            'style': { 'width': '6%', 'left': '21.2%', 'top': '70.5%', 'z-index': '10' },
+            'style': { 'width': '13%', 'left': '38.25%', 'top': '65%', 'z-index': '20' },
           },
           {
-            'image': 'outside-light-off.png',
-            'style': { 'width': '6%', 'left': '42.8%', 'top': '70.5%', 'z-index': '10' },
+            'image': 'outside-lamp-off.png',
+            'style': { 'width': '4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
           },
           {
-            'image': 'outside-lamp-gray-off.png',
-            'style': { 'width': '1.4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
+            'image': 'outside-lamp-off.png',
+            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
           },
           {
-            'image': 'outside-lamp-door-off.png',
-            'style': { 'width': '1.4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
-          },
-          {
-            'image': 'outside-lamp-gray-off.png',
-            'style': { 'width': '1.4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
+            'image': 'outside-lamp-off.png',
+            'style': { 'width': '4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
           },
         ],
       },
@@ -288,7 +280,23 @@ export const THEMES = {
         'on': [
           {
             'image': 'ups.png',
-            'style': { 'width': '4%', 'left': '37.0%', 'top': '75%', 'z-index': '100' },
+            'style': { 'width': '4%', 'left': '37.0%', 'top': '75%', 'z-index': '19' },
+          },
+        ],
+      },
+      'usps-delivered': {
+        'on': [
+          {
+            'image': 'usps.png',
+            'style': { 'width': '4%', 'left': '42.5%', 'top': '84%', 'z-index': '100' },
+          },
+        ],
+      },
+      'dhl-delivered': {
+        'on': [
+          {
+            'image': 'dhl.png',
+            'style': { 'width': '5%', 'left': '40.0%', 'top': '79%', 'z-index': '100' },
           },
         ],
       },
