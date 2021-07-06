@@ -55,23 +55,24 @@
 15. Paste the yaml code copied from step 14 into the Lovelace dashboard you
     opened in step 12 and save.
 #
-You will need to create several "Helpers" for the swipe menus.
+ You will need to create several "Helpers" for the swipe menus.
 #
-1. Click "Configuration" from the sidebar
-2. Click Helpers from the "Configure Home Assistant Page"
-3. Click "+ Add Helper" from the lower right corner
-4. Create two (2) Dropdown helpers: "Menu Select" and "Submenu Select"
-   Menu Select - The main menu
-   For my example you will need to add "Lights", "Weather" and "Doors"
-   Submenu Select - the separate menus for Lights and Doors
-   For my example you will need to add "Outside", "Office", "Living Room",
-   "Front Door", "Garage Door" and "Back Door"
-5. If you also installed and configured Mail & Packages you will need to
-   create 5 Toggle helpers, "Amazon Delivering", "Amazon Delivered", 
-   "FedEx Delivering", "FedEx Delivered", "UPS Delivering", "UPS Delivered",
-   and "Mail"
-   (Mail is part of the US Postal Service Informed Delivery. If you do not
-     use their service, or are outside the US this option will not be necessary)
+ 1. Click "Configuration" from the sidebar
+ 2. Click Helpers from the "Configure Home Assistant Page"
+ 3. Click "+ Add Helper" from the lower right corner
+ 4. Create two (2) Dropdown helpers: "Menu Select" and "Submenu Select"
+    Menu Select - The main menu
+    For my example you will need to add "Lights", "Weather" and "Doors"
+    Submenu Select - the separate menus for Lights and Doors
+    For my example you will need to add "Outside", "Office", "Living Room",
+    "Front Door", "Garage Door" and "Back Door"
+#
+ If you also installed and configured Mail & Packages you will need to
+ create 5 Toggle helpers, "Amazon Delivering", "Amazon Delivered",
+ "FedEx Delivering", "FedEx Delivered", "UPS Delivering", "UPS Delivered",
+ and "Mail"
+ (Mail is part of the US Postal Service Informed Delivery. If you do not
+   use their service, or are outside the US this option will not be necessary)
 #
 At this point you will need to edit the individual cards or the raw yaml
 in order to replace my entities with yours.
