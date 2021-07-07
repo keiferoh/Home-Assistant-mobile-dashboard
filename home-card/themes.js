@@ -17,7 +17,7 @@ export const THEMES = {
       },
       'door': {
         'tap_action': {
-          'action': 'none',
+          'action': 'toggle',
         },
       },
       'garage_door_light': {
@@ -172,21 +172,21 @@ export const THEMES = {
         'on': [
           {
             'image': 'outside-lamp-on.png',
-            'style': { 'width': '4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '1.75%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
           },
           {
             'image': 'outside-lamp-on.png',
-            'style': { 'width': '4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '1.75%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
           },
         ],
         'off': [
           {
             'image': 'outside-lamp-off.png',
-            'style': { 'width': '4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '1.75%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
           },
           {
             'image': 'outside-lamp-off.png',
-            'style': { 'width': '4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '1.75%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
           },
         ],
       },
@@ -198,7 +198,7 @@ export const THEMES = {
           },
           {
             'image': 'outside-lamp-on.png',
-            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '1.75%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
           },
         ],
         'off': [
@@ -208,7 +208,7 @@ export const THEMES = {
           },
         {
             'image': 'outside-lamp-off.png',
-            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '1.75%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
           },
         ],
       },
@@ -216,13 +216,13 @@ export const THEMES = {
         'on': [
           {
             'image': 'outside-light-on.png',
-            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
+            'style': { 'width': '2%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
           },
         ],
         'off': [
           {
             'image': 'outside-light-off.png',
-            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
+            'style': { 'width': '2%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
           },
         ],
       },
