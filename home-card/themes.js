@@ -90,21 +90,21 @@ export const THEMES = {
         'on': [
           {
             'image': 'flag.gif',
-            'style': { 'width': '10%', 'left': '50.1%', 'top': '44.5%', 'z-index': '20'},
+            'style': { 'width': '10%', 'left': '50%', 'top': '44.5%', 'z-index': '20'},
           },
           {
             'image': 'flagpole.png',
-            'style': { 'width': '.8%', 'left': '46.5%', 'top': '58%', 'z-index': '21'},
+            'style': { 'width': '.8%', 'left': '46.4%', 'top': '58%', 'z-index': '21'},
           },
         ],
         'off': [
           {
             'image': 'flag.gif',
-            'style': { 'width': '10%', 'left': '50.1%', 'top': '44.5%', 'z-index': '20'},
+            'style': { 'width': '10%', 'left': '50%', 'top': '44.5%', 'z-index': '20'},
           },
           {
             'image': 'flagpole.png',
-            'style': { 'width': '.8%', 'left': '46.5%', 'top': '58%', 'z-index': '21'},
+            'style': { 'width': '.8%', 'left': '46.4%', 'top': '58%', 'z-index': '21'},
           },
         ],
       },
@@ -156,7 +156,7 @@ export const THEMES = {
           },
           {
             'image': 'outside-light-on.png',
-            'style': { 'width': '14%', 'left': '38.75%', 'top': '65%', 'z-index': '20' },
+            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
           },
           {
             'image': 'outside-lamp-on.png',
@@ -178,7 +178,7 @@ export const THEMES = {
           },
           {
             'image': 'outside-light-off.png',
-            'style': { 'width': '13%', 'left': '38.75%', 'top': '65%', 'z-index': '20' },
+            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
           },
           {
             'image': 'outside-lamp-off.png',
