@@ -90,7 +90,7 @@ export const THEMES = {
         'on': [
           {
             'image': 'flag.gif',
-            'style': { 'width': '10%', 'left': '50%', 'top': '44.5%', 'z-index': '20'},
+            'style': { 'width': '9%', 'left': '49.5%', 'top': '44.5%', 'z-index': '20'},
           },
           {
             'image': 'flagpole.png',
@@ -100,7 +100,7 @@ export const THEMES = {
         'off': [
           {
             'image': 'flag.gif',
-            'style': { 'width': '10%', 'left': '50%', 'top': '44.5%', 'z-index': '20'},
+            'style': { 'width': '9%', 'left': '49.5%', 'top': '44.5%', 'z-index': '20'},
           },
           {
             'image': 'flagpole.png',
