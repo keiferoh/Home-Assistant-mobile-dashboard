@@ -15,6 +15,26 @@ export const THEMES = {
           'action': 'none',
         },
       },
+      'door': {
+        'tap_action': {
+          'action': 'none',
+        },
+      },
+      'garage_door_light': {
+        'tap_action': {
+          'action': 'none',
+        },
+      },
+      'front_door_light': {
+        'tap_action': {
+          'action': 'none',
+        },
+      },
+      'back_door_light': {
+        'tap_action': {
+          'action': 'none',
+        },
+      },
       'garage': {
         'tap_action': {
           'action': 'none',

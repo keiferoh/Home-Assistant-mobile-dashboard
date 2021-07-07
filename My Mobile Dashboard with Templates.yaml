@@ -217,6 +217,21 @@ views:
                       'off': away
                       'on': home
                     type: car2
+                  - entity: light.garage_door_light
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: garage_door_light
+                  - entity: light.front_porch_light
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: front_door_light
+                  - entity: light.rear_deck_light
+                    state_map:
+                      'off': 'off'
+                      'on': 'on'
+                    type: back_door_light
                   - entity: light.guest_room_lights
                     type: downstairs_light
                   - entity: light.office_lights
@@ -225,8 +240,6 @@ views:
                     type: upstairs_light
                   - entity: light.front_porch_light
                     type: door
-                  - entity: light.outside_lights
-                    type: outside_light
                   - entity: light.living_room_lights
                     type: garage2
                   - entity: light.guest_room_lights
