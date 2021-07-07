@@ -148,23 +148,11 @@ export const THEMES = {
           },
         ],
       },
-      'outside_light': {
+      'garage_door_light': {
         'on': [
-          {
-            'image': 'door-close.png',
-            'style': { 'width': '5.8%', 'left': '32.15%', 'top': '61.25%', 'z-index': '10'},
-          },
-          {
-            'image': 'outside-light-on.png',
-            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
-          },
           {
             'image': 'outside-lamp-on.png',
             'style': { 'width': '4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
-          },
-          {
-            'image': 'outside-lamp-on.png',
-            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
           },
           {
             'image': 'outside-lamp-on.png',
@@ -173,24 +161,48 @@ export const THEMES = {
         ],
         'off': [
           {
-            'image': 'door-open.png',
-            'style': { 'width': '5.8%', 'left': '32.15%', 'top': '61.25%', 'z-index': '10'},
-          },
-          {
-            'image': 'outside-light-off.png',
-            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
-          },
-          {
             'image': 'outside-lamp-off.png',
             'style': { 'width': '4%', 'left': '48.20%', 'top': '48.0%', 'z-index': '10' },
           },
           {
             'image': 'outside-lamp-off.png',
-            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
+          },
+        ],
+      },
+      'front_door_light': {
+        'on': [
+          {
+            'image': 'door-close.png',
+            'style': { 'width': '5.8%', 'left': '32.15%', 'top': '61.25%', 'z-index': '10'},
           },
           {
+            'image': 'outside-lamp-on.png',
+            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
+          },
+        ],
+        'off': [
+          {
+            'image': 'door-open.png',
+            'style': { 'width': '5.8%', 'left': '32.15%', 'top': '61.25%', 'z-index': '10'},
+          },
+        {
             'image': 'outside-lamp-off.png',
-            'style': { 'width': '4%', 'left': '73.65%', 'top': '48.0%', 'z-index': '10' },
+            'style': { 'width': '4%', 'left': '27.35%', 'top': '48.0%', 'z-index': '10' },
+          },
+        ],
+      },
+      'back_door_light': {
+        'on': [
+          {
+            'image': 'outside-light-on.png',
+            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
+          },
+        ],
+        'off': [
+          {
+            'image': 'outside-light-off.png',
+            'style': { 'width': '13%', 'left': '38.75%', 'top': '64.5%', 'z-index': '20' },
           },
         ],
       },
